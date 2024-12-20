@@ -1,0 +1,39 @@
+{%extends  'acounts/base.html' %}
+{% block title%}
+    <title>loginUSer</title>
+{%endblock%}
+
+{%block content%}
+
+<div class ="form">
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    
+    <div>
+      <label for = "{{field.id_for_lable}}">{{form.username.label}}</label>
+        {{ form.username}}
+         {% for e in form.username.errors %}
+        <div>
+          {{e}}
+        </div>
+          {%endfor %}
+        <br>
+        <div>
+          <label for = "{{field.id_for_lable}}">{{form.password.label}}</label>
+            {{ form.password}}
+             {% for e in form.password.errors %}
+            <div>
+              {{e}}
+            </div>
+              {%endfor %}
+            <br>
+   
+
+    <input type="submit" value="submit"/>
+     </div>
+    </div>
+</form>
+
+
+
+{% endblock %}
